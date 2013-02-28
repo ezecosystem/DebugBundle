@@ -1,0 +1,27 @@
+{% spaceless %}
+{% if variable.complex %}
+
+	{% if variable.type == 'object' %}
+		<em>object[<a data-title="{{ variable.attributes.filename }}">{{ variable.attributes.classname }}</a>] {% if variable.attributes.count %}{{ '{' ~ variable.attributes.count ~ ' properties}' }}{% endif %}</em>
+	{% else %}
+		<em>array({{ variable.attributes.count }})</em>
+	{% endif %}
+
+	{% if variable.value %}
+	<ul>
+	{% for name,value in variable.value %}
+		<li><strong>{{ name }}</strong><span>=></span>{% include 'ThinkCreativeDebugBundle:dumpvars:display.html.twig' with { 'variable': value } only %}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+{% else %}
+
+	{% if variable.type == 'NULL' %}
+		NULL
+	{% else %}
+		<em>({{ variable.type }})</em> {{ variable.value }}
+	{% endif %}
+
+{% endif %}
+{% endspaceless %}

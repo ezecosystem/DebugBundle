@@ -4,6 +4,8 @@
 * Table of Contents
 	general styles
 	standard output block
+		shared styles
+	dump_vars function
 *
 ********************************************************************************/
 
@@ -65,6 +67,75 @@
 #debug .output-block-category, .debug-output-block-category {
 	font-size: 10px;
 	position: absolute;
-	top: 10px;
+	top: 4px;
 	right: 10px;
+}
+
+/* ------------------------------------------------------------------------
+  shared styles
+------------------------------------------------------------------------ */
+#debug .output-block ul, .debug-output-block ul {
+	margin-left: 2em;
+	padding-left: 0;
+	list-style-type: none;
+}
+	#debug .output-block li, .debug-output-block li {
+		line-height: 21px;
+	}
+	#debug .output-block li a, .debug-output-block li a {
+		color: #006a8d;
+		position: relative;
+	}
+	#debug .output-block li span, .debug-output-block li span {
+		color: #a4254d;
+		margin: 0 5px;
+	}
+	#debug .output-block ul ul, .debug-output-block ul ul {
+		margin-bottom: 0;
+	}
+
+
+/********************************************************************************
+  dump_vars function
+********************************************************************************/
+#debug a[data-title]:hover:after, .debug-output-block a[data-title]:hover:after {
+	background-color: #fcfec5;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px #777;
+	bottom: 135%;
+	color: #a4254d;
+	content: attr(data-title);
+	font-size: 90%;
+	font-style: italic;
+	font-weight: normal;
+	left: 25px;
+	padding: 2px 8px;
+	position: absolute;
+	white-space: nowrap;
+	z-index: 20;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0px 0px 4px #555;
+	-webkit-box-shadow: 0px 0px 4px #555;
+}
+#debug .primary-variable, .debug-output-block .primary-variable {
+	margin: 0 0 0 10px;
+}
+#debug .primary-variable li:first-child > em, .debug-output-block .primary-variable li:first-child > em {
+	color: #333;
+	font-style: normal;
+	font-weight: bold;
+}
+#debug .primary-variable li li:first-child > em, .debug-output-block .primary-variable li li:first-child > em {
+	font-style: italic;
+	font-weight: normal;
+}
+#debug .variable-label, .debug-output-block .variable-label {
+	border-bottom: 1px dashed #333;
+	font-family: Menlo,Monaco,'Courier New',monospace;
+	font-weight: bold;
+	font-size: 120%;
+	line-height: 1;
+	margin: 0 0 1em;
+	padding: 0 0 8px;
 }

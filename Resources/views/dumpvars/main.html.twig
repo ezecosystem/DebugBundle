@@ -1,0 +1,12 @@
+{% extends "ThinkCreativeDebugBundle::output_block.html.twig" %}
+
+{% block output %}
+{% if label %}
+	<p class="variable-label">{{ label }}</p>
+{% endif %}
+<div>
+	<ul class="primary-variable">
+		<li>{% include 'ThinkCreativeDebugBundle:dumpvars:display.html.twig' with { 'variable': variable } only %}</li>
+	</ul>
+</div>
+{% endblock %}
