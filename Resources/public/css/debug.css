@@ -1,0 +1,25 @@
+/********************************************************************************
+* Debug Design Styles
+*
+* Table of Contents
+	general styles
+*
+********************************************************************************/
+
+
+/********************************************************************************
+  general styles
+********************************************************************************/
+#debug {
+	background-color: #fff;
+	border-top: 1px dashed #333;
+	border-radius: 16px;
+	color: #333;
+	margin-top: 24px;
+	padding: 10px 16px;
+}
+#debug h2 {
+	font-family: Menlo,Monaco,'Courier New',monospace;
+	margin: 0.35em 0;
+	padding: 4px;
+}

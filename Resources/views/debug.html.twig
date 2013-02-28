@@ -1,0 +1,19 @@
+<div id="debug">
+	<h2>Debug</h2>
+</div>
+
+{% stylesheets output='bundles/thinkcreativedebug/css/all.css' '@ThinkCreativeDebugBundle/Resources/public/css/debug.css' %}
+{% set debug_stylesheet = asset_url %}
+{% endstylesheets %}
+<script type="text/javascript">
+(function(source){% verbatim %}{
+	var
+		head = document.getElementsByTagName('head')[0],
+		style = document.createElement('link');
+	;
+	style.setAttribute('rel', 'stylesheet');
+	style.setAttribute('type', 'text/css');
+	style.setAttribute('href', source);
+	head.appendChild(style);
+}{% endverbatim %})("{{ asset(debug_stylesheet) }}");
+</script>
