@@ -7,6 +7,7 @@
 	<parameters>
 		<parameter key="thinkcreative.debug.class">ThinkCreative\DebugBundle\Services\DebugHandler</parameter>
 		<parameter key="thinkcreative.debugblocklistener.class">ThinkCreative\DebugBundle\EventListener\DebugBlockListener</parameter>
+		<parameter key="thinkcreative.twig.debugextension.class">ThinkCreative\DebugBundle\Twig\DebugTwigExtension</parameter>
 	</parameters>
 
 	<services>
@@ -17,6 +18,10 @@
 		<service id="thinkcreative.twig.debugblocklistener" class="%thinkcreative.debugblocklistener.class%">
 			<argument type="service" id="service_container" />
 			<tag name="kernel.event_subscriber" />
+		</service>
+		<service id="thinkcreative.twig.debugextension" class="%thinkcreative.twig.debugextension.class%" public="false">
+			<argument type="service" id="service_container" />
+			<tag name="twig.extension" />
 		</service>
 	</services>
 </container>
