@@ -3,6 +3,7 @@
 *
 * Table of Contents
 	general styles
+	standard output block
 *
 ********************************************************************************/
 
@@ -22,4 +23,26 @@
 	font-family: Menlo,Monaco,'Courier New',monospace;
 	margin: 0.35em 0;
 	padding: 4px;
+}
+
+
+/********************************************************************************
+  standard output block
+********************************************************************************/
+#debug .output-block, .debug-output-block {
+	background-color: #f5f5f5;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	color: #333;
+	font-family: Menlo,Monaco,'Courier New',monospace;
+	font-size: 12px;
+	margin: 0 0 10px;
+	padding: 10px;
+	position: relative;
+}
+#debug .output-block-category, .debug-output-block-category {
+	font-size: 10px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }

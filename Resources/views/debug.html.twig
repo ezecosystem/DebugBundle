@@ -1,5 +1,8 @@
 <div id="debug">
 	<h2>Debug</h2>
+	{% for item in blocks %}
+		{% include item.templatename with item.options only %}
+	{% endfor %}
 </div>
 
 {% stylesheets output='bundles/thinkcreativedebug/css/all.css' '@ThinkCreativeDebugBundle/Resources/public/css/debug.css' %}

@@ -1,0 +1,5 @@
+{% set standalone = standalone is null ? true : standalone %}
+<div class="{{ standalone ? 'debug-' : '' }}output-block">
+{% if block_label %}	<a class="{{ standalone ? 'debug-' : '' }}output-block-category">{{ block_label }}</a>{% endif %}
+	{% block output %}{% endblock %}
+</div>
