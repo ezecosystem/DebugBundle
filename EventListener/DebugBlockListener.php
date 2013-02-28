@@ -27,6 +27,7 @@ class DebugBlockListener implements EventSubscriberInterface
 			$Request = $event->getRequest();
 			$Response = $event->getResponse();
 			if(!$Request->isXmlHttpRequest() && !$Response->isRedirection() && $this->isHTML($Request, $Response)){
+				$DebugHandler->createOutputBlock('ThinkCreative\DebugBundle\Debug\OutputBlocks\TemplateList');
 				$DebugHandler->injectDebugOutput($Response);
 			}
 		}

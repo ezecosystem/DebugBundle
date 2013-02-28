@@ -1,0 +1,26 @@
+{% extends "ThinkCreativeDebugBundle::output_block.html.twig" %}
+
+{% block output %}
+<table cellpadding="2" cellspacing="0">
+	<colgroup>
+		<col width="50%" />
+		<col width="10%" />
+		<col width="20%" />
+		<col width="20%" />
+	</colgroup>
+	<tr>
+		<th class="text-align-left">Name</th>
+		<th class="text-align-center">Count</th>
+		<th class="timing-point">Total Elapsed Time</th>
+		<th class="timing-point">Average Elapsed Time</th>
+	</tr>
+{% for template in template_list %}
+	<tr class="{{ cycle(['bgdark', ''], loop.index) }}">
+		<td>{{ template.name }}</td>
+		<td class="text-align-center">{{ template.count }}</td>
+		<td class="timing-point">{{ template.elapsedtime|number_format(5) }} sec</td>
+		<td class="timing-point">{{ template.averageelapsedtime|number_format(5) }} sec</td>
+	</tr>
+{% endfor %}
+</table>
+{% endblock %}

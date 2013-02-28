@@ -24,6 +24,28 @@
 	margin: 0.35em 0;
 	padding: 4px;
 }
+#debug table {
+	width: 100%;
+}
+	#debug td {
+		vertical-align: top;
+		padding: 7px;
+	}
+	#debug th {
+		font-size: 110%;
+	}
+	#debug .bgdark {
+		background-color: #e9e9e9;
+	}
+#debug .text-align-center {
+	text-align: center;
+}
+#debug .text-align-left {
+	text-align: left;
+}
+#debug .text-align-right, #debug .timing-point {
+	text-align: right;
+}
 
 
 /********************************************************************************
