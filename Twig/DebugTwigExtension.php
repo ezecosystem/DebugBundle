@@ -25,6 +25,12 @@ class DebugTwigExtension extends \Twig_Extension
 		return 'thinkcreative_debug_extension';
 	}
 
+	public function getTokenParsers(){
+		return array(
+			new TokenParser\DebugTokenParser($this->Container->get('thinkcreative.debug')->getOutputToken()),
+		);
+	}
+
 	public function dumpVariables($variable=false, $max_depth=2, $label=false){
 		$Kernel = $this->Container->get('kernel');
 		$DebugHandler = $this->Container->get('thinkcreative.debug');

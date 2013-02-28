@@ -5,6 +5,7 @@ namespace ThinkCreative\DebugBundle\Services;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use ThinkCreative\DebugBundle\Debug\OutputBlockInterface;
+use ThinkCreative\DebugBundle\Twig;
 
 class DebugHandler
 {
@@ -12,6 +13,7 @@ class DebugHandler
 	protected $Container;
 
 	protected static $OutputBlocks = array();
+	protected static $OutputToken = '<!-- debug_output -->';
 
 	public function __construct(ContainerInterface $container){
 		$this->Container = $container;
@@ -35,6 +37,14 @@ class DebugHandler
 		return $this->addOutputBlock($OutputBlock);
 	}
 
+	public function getOutputToken(){
+		return self::$OutputToken;
+	}
+
+	public static function hasOutputToken(){
+		return Twig\Node\DebugNode::hasOutputToken();
+	}
+
 	public function injectDebugOutput(Response $response){
 		if(function_exists('mb_stripos')){
 			$findPosition = 'mb_strripos';
@@ -44,8 +54,14 @@ class DebugHandler
 			$getSubstring = 'substr';
 		}
 
+		$OutputToken = '';
 		$Content = $response->getContent();
 		$OutputPosition = $findPosition($Content, '</body>');
+
+		if(self::hasOutputToken() && $OutputToken = self::$OutputToken){
+			$OutputPosition = $findPosition($Content, $OutputToken);
+		}
+
 		if($OutputPosition !== false){
 			foreach(self::$OutputBlocks as $ID => $OutputBlock){
 				self::$OutputBlocks[$ID]->set('standalone', false);
@@ -53,7 +69,7 @@ class DebugHandler
 			$DebugOutput = $this->Container->get('twig')->render('ThinkCreativeDebugBundle::debug.html.twig', array(
 				'blocks' => self::$OutputBlocks
 			));
-			$Content = $getSubstring($Content, 0, $OutputPosition) . $DebugOutput . $getSubstring($Content, $OutputPosition);
+			$Content = $getSubstring($Content, 0, $OutputPosition) . $DebugOutput . $getSubstring($Content, $OutputPosition + strlen($OutputToken));
 			$response->setContent($Content);
 		}
 	}
