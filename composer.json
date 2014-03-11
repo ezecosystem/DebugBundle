@@ -12,8 +12,8 @@
     "minimum-stability" : "dev",
     "autoload" : {
         "psr-0" : {
-            "ThinkCreative\\DebugBundle\\ThinkCreativeDebugBundle" : ""
+            "ThinkCreative\\DebugBundle" : ""
         }
     },
-    "target-dir" : "thinkcreative/debug-bundle/DebugBundle"
+    "target-dir" : "ThinkCreative/DebugBundle"
 }
