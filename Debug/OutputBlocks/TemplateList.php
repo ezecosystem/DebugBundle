@@ -9,8 +9,11 @@ class TemplateList extends OutputBlock
 {
 
 	function getOptions(){
-		return array(
-			'template_list' => DebugTemplate::getTemplateList()
+		return array_replace_recursive(
+			$this->Options,
+			array(
+				'template_list' => DebugTemplate::getTemplateList(),
+			)
 		);
 	}
 

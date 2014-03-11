@@ -38,7 +38,8 @@ class DebugTwigExtension extends \Twig_Extension
 		$OutputBlockID = $DebugHandler->createOutputBlock('ThinkCreative\DebugBundle\Debug\OutputBlocks\DumpVariables', array(
 			'variable' => Utils\DumpVariable::process($variable, $max_depth, str_replace($Kernel->getName(), '', $Kernel->getRootDir())),
 			'label' => $label,
-			'block_label' => 'dump_vars()'
+			'block_label' => 'dump_vars()',
+			'standalone' => true,
 		));
 
 		if($debug === false || ($debug === NULL && !$DebugHandler->hasOutputToken())){

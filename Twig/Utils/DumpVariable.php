@@ -64,6 +64,7 @@ class DumpVariable
 		if($this->Type == 'object'){
 			$Reflector = new \ReflectionObject($this->Item);
 			$this->Attributes = array(
+				'count' => 0,
 				'classname' => $Reflector->name,
 				'filename' => str_replace($system_directory, '', $Reflector->getFileName())
 			);

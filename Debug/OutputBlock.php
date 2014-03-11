@@ -6,10 +6,16 @@ class OutputBlock implements OutputBlockInterface
 {
 
 	private $ID;
-	protected $Options;
+	protected $Options = array();
 
 	public function __construct(){
 		$this->ID = spl_object_hash($this);
+		$this->setOptions(
+			array(
+				'standalone' => true,
+				'block_label' => '',
+			)
+		);
 	}
 
 	public function getID(){
@@ -29,7 +35,9 @@ class OutputBlock implements OutputBlockInterface
 	}
 
 	public function setOptions(array $options){
-		$this->Options = $options;
+		$this->Options = array_replace_recursive(
+			$this->Options, $options
+		);
 	}
 
 }

@@ -5,7 +5,7 @@
 	{% endfor %}
 </div>
 
-{% stylesheets output='bundles/thinkcreativedebug/css/all.css' '@ThinkCreativeDebugBundle/Resources/public/css/debug.css' %}
+{% stylesheets output='bundles/thinkcreativedebug/css/debug.css' '@ThinkCreativeDebugBundle/Resources/public/css/debug.css' %}
 {% set debug_stylesheet = asset_url %}
 {% endstylesheets %}
 <script type="text/javascript">
@@ -16,7 +16,7 @@
 	;
 	style.setAttribute('rel', 'stylesheet');
 	style.setAttribute('type', 'text/css');
-	style.setAttribute('href', source);
+	style.setAttribute('href', 'bundles/thinkcreativedebug/css/debug.css');
 	head.appendChild(style);
 }{% endverbatim %})("{{ asset(debug_stylesheet) }}");
 </script>
