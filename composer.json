@@ -1,0 +1,19 @@
+{
+    "name" : "thinkcreative/debug-bundle",
+    "type" : "library",
+    "description" : "A set of debug utilities for symfony",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name" : "Michael O'Connor",
+            "email": "michael@thinkcreative.com"
+        }
+    ],
+    "minimum-stability" : "dev",
+    "autoload" : {
+        "psr-0" : {
+            "ThinkCreative\\DebugBundle\\ThinkCreativeDebugBundle" : ""
+        }
+    },
+    "target-dir" : "thinkcreative/debug-bundle/DebugBundle"
+}
